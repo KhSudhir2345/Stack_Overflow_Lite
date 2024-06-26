@@ -8,12 +8,16 @@
     <form>
       <style>
         #Description{
-          height: 100px;
-          width: 500px;
+          /* height: 100px;
+          width: 500px; */
           position: relative;
           margin-top: 10px;
-          left: 80px;
           font-size: 16px;
+          display: flex;
+          align-items: center;
+        }
+        #Description textarea{
+          width: 100%;
         }
         #title{
           height: 50px;
@@ -21,12 +25,29 @@
           position: relative;
           left: 30px;
         }
+        #url{
+          margin-top: 20px;
+          width: 800px;
+          position: relative;
+          display: flex;
+          align-items: center;
+          /* left: 200px;           */
+        }
+        #url input{
+          width: 400px;
+          height: 50px;
+        }
       </style>
       <label for="title">      Match:</label>
       <input type="text" id="title" name="title" required>
-      <br>
-      <label for="description">Description:</label>
-      <textarea id="description" name="description"></textarea>
+      <div id="description">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description"></textarea>
+      </div>
+      <div id="url">
+        <label for="link">Link for the highlights:</label>
+        <input type="url" name="'url" required>
+      </div>
       <!-- <label for="body">Blog body:</label>
       <textarea id="body" name="body" required></textarea> -->
       <br>
