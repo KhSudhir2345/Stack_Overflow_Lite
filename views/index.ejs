@@ -1,0 +1,28 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  <div class="matches content" style="gap: 2rem;">
+    <h2>Best Cricket Matches in the Last Decade</h2>
+
+    <% matches.forEach(match => { %>
+      <div class="Container">
+        <style>
+          .Container{
+            border: 1px solid black;
+            margin-top: 10px;
+          }
+        </style>
+        <h3 class="title"><a href="<%= match.link %>"><%= match.name %></a></h3>
+        <p class="snippet"><%= match.description %></p>
+      </div>
+    <% }) %>
+    
+  </div>
+
+  <%- include("./partials/footer.ejs") %>
+</body>
+
+</html>

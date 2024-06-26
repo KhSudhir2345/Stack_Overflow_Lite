@@ -1,0 +1,43 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  <div class="create-match content">
+    <form>
+      <style>
+        #Description{
+          height: 100px;
+          width: 500px;
+          position: relative;
+          margin-top: 10px;
+          left: 80px;
+          font-size: 16px;
+        }
+        #title{
+          height: 50px;
+          width: 300px;
+          position: relative;
+          left: 30px;
+        }
+      </style>
+      <label for="title">      Match:</label>
+      <input type="text" id="title" name="title" required>
+      <br>
+      <label for="description">Description:</label>
+      <textarea id="description" name="description"></textarea>
+      <!-- <label for="body">Blog body:</label>
+      <textarea id="body" name="body" required></textarea> -->
+      <br>
+      <br>
+      <button>Submit</button>
+    </form>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <h3 style="text-align: center;">Copyright &copy; Sudhir 2024</h3>
+</body>
+</html>
