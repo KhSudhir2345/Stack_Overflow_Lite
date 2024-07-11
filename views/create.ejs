@@ -4,61 +4,18 @@
 <body>
   <%- include("./partials/nav.ejs") %>
 
-  <div class="create-match content">
-    <form>
-      <style>
-        #Description{
-          /* height: 100px;
-          width: 500px; */
-          position: relative;
-          margin-top: 10px;
-          font-size: 16px;
-          display: flex;
-          align-items: center;
-        }
-        #Description textarea{
-          width: 100%;
-        }
-        #title{
-          height: 50px;
-          width: 300px;
-          position: relative;
-          left: 30px;
-        }
-        #url{
-          margin-top: 20px;
-          width: 800px;
-          position: relative;
-          display: flex;
-          align-items: center;
-          /* left: 200px;           */
-        }
-        #url input{
-          width: 400px;
-          height: 50px;
-        }
-      </style>
-      <label for="title">      Match:</label>
+  <div class="create-blog content">
+    <form action="/questions" method="POST">
+      <label for="title">Title:</label>
       <input type="text" id="title" name="title" required>
-      <div id="description">
-        <label for="description">Description:</label>
-        <textarea id="description" name="description"></textarea>
-      </div>
-      <div id="url">
-        <label for="link">Link for the highlights:</label>
-        <input type="url" name="'url" required>
-      </div>
-      <!-- <label for="body">Blog body:</label>
-      <textarea id="body" name="body" required></textarea> -->
-      <br>
-      <br>
+      <label for="Description">Description:</label>
+      <textarea id="Description" name="Description" required></textarea>
+      <label for="Date">Date</label>
+      <input type="text" id="Date" name="Date" required>
       <button>Submit</button>
     </form>
   </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <h3 style="text-align: center;">Copyright &copy; Sudhir 2024</h3>
+
+  <%- include("./partials/footer.ejs") %>
 </body>
 </html>

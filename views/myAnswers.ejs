@@ -1,0 +1,30 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+    <nav>
+        <div class="site-title">
+            <a href="/"><h1 style="font-family: sans-serif; color: blue;">Stack Overflow Lite</h1></a>
+        </div>
+        <a href="/profile/Questions">My Questions</a>
+        <img src="https://www.shutterstock.com/image-vector/user-icon-trendy-flat-style-600nw-1697898655.jpg" alt="User Icon">
+        <h4>Username</h4>
+    </nav>
+    <div class="User_Questions">
+        <section class="Answer-Section">
+            <h2>Your Answers</h2>
+            <% if (answers && answers.length > 0) { %>
+                <% answers.forEach(answer => { %>
+                    <div class="link_ans">
+                        <a href="/questions/<%= answer.QuestionId %>/answers" style="text-decoration: underline;">Question Link</a>
+                        <pre><%= answer.Answer %></pre>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <p>You haven't posted any answers yet.</p>
+            <% } %>
+        </section>
+    </div>
+    <%- include("./partials/footer.ejs") %>
+</body>
+</html>

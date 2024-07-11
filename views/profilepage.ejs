@@ -1,0 +1,19 @@
+
+<a class="delete" data-doc="<%= question._id %>">
+  <img src="/trashcan.png" alt="delete icon">
+</a>
+<script>
+    const trashcan = document.querySelector('a.delete');
+
+    trashcan.addEventListener('click', (e) => {
+      const endpoint = `/questions/${trashcan.dataset.doc}`;
+
+      fetch(endpoint, {
+        method: 'DELETE',
+      })
+      .then(response => response.json())
+      .then(data => window.location.href = data.redirect)
+      .catch(err => console.log(err));
+    });
+    
+  </script>

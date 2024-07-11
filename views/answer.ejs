@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head.ejs") %>
+</head>
+<body>
+    <%- include("./partials/nav.ejs") %>
+
+    <div id="Answer-Content">
+        <form action="/questions/<%= id %>/answers" method="POST">
+            <h2 style="margin-bottom: 20px;"><label for="Answer">Your Answer:</label></h2>
+            <textarea id="Answer" name="Answer" required style="display: block;"></textarea>
+            <label for="QuestionId">QuestionId:</label>
+            <input type="text" value="<%= id %>" name="QuestionId" style="margin-top: 10px;">
+            <br>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+
+    <%- include("./partials/footer.ejs") %>
+</body>
+</html>

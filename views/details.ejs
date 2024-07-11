@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+<body>
+  <%- include("./partials/nav.ejs") %>
+  <div class="details_content">
+    <h2 style="margin-bottom: 20px;"><%= question.title %></h2>
+    <div class="content">
+      <p style="font-size: 18px;"><%= question.Description %></p>
+    </div>
+    <% if (answers && answers.length > 0) { %>
+      <div id="Answer-Content">
+        <h2>Answers:</h2>
+        <% answers.forEach(answer => { %>
+          <pre style="font-size: 16px; padding-left: 10px;"><%= answer.Answer %></pre>
+        <% }) %>
+      </div>
+    <% } else { %>
+      <p>No specific answer provided.</p>
+    <% } %>
+    <div style="position: relative; top: 30px; height: 50px;">
+      <a id="Answer-Button" href="/questions/<%= question._id %>/answer">Add Answer</a>
+    </div>
+  </div> 
+  <%- include("./partials/footer.ejs") %>
+  <script>
+    const preTag=document.querySelector('pre');
+    const inputText=preTag.textContent;
+    const lines=inputText.split('\n');
+    let outputHtml = '';
+    let inCodeBlock = false;
+
+    lines.forEach((line, index) => {
+        if (line.trim() === '```') {
+            inCodeBlock = !inCodeBlock;
+            outputHtml += '<br>';  // Add a line break for the delimiter
+        } else if (inCodeBlock) {
+            // Apply code styles if within a code block
+            outputHtml += `<pre style="background-color: #f0f0f0; padding: 10px; border: 1px solid #ccc;">${line}</pre><br>`;
+        } else {
+            outputHtml += `${line}<br>`;
+        }
+    document.querySelector('pre').innerHTML=outputHtml;
+  });
+  </script>
+</body>
+</html>
